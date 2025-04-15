@@ -4,9 +4,9 @@ pipeline {
         environment {
             
             CONTAINER_ID = ''
-            SUM_PY_PATH = 'C:\Users\charp\desktop\tp-4-devops\sum.py'
-            DIR_PATH = 'C:\Users\teo\desktop'
-            TEST_FILE_PATH = '/C:\Userscharp\Desktop\tp-4-devops\test_variables.txt'
+            SUM_PY_PATH = 'C:/Users/charp/desktop/tp-4-devops/sum.py'
+            DIR_PATH = 'C:/Users/teo/desktop'
+            TEST_FILE_PATH = 'C:/Userscharp/Desktop/tp-4-devops/test_variables.txt'
         }
 
         stages {
