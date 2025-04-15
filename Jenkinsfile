@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     environment {
-        SUM_PY_PATH = 'C:/Users/charp/desktop/tp-4-devops/sum.py'
+	CONTAINER_ID = ''
+        SUM_PY_PATH = '/app/sum.py'
         DIR_PATH = '.'
-        TEST_FILE_PATH = 'C:/Users/charp/Desktop/tp-4-devops/test_variables.txt'
+        TEST_FILE_PATH = 'test_variables.txt'
     }
 
     stages {
