@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-	CONTAINER_ID = ''
+        CONTAINER_ID = ''
         SUM_PY_PATH = '/app/sum.py'
         DIR_PATH = '.'
         TEST_FILE_PATH = 'test_variables.txt'
@@ -30,7 +30,6 @@ pipeline {
                 script {
                     echo "Lancement du conteneur Docker..."
                     def output = sh(script: "docker run -dit container-tp-4-devops-image", returnStdout: true).trim()
-                    // On écrit dans un fichier pour le récupérer plus tard
                     writeFile file: 'container_id.txt', text: output
                     echo "Conteneur lancé avec ID : ${output}"
                 }
@@ -40,9 +39,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // On récupère l'ID stocké
                     def containerId = readFile('container_id.txt').trim()
-
                     def testLines = readFile(env.TEST_FILE_PATH).split('\n')
 
                     for (line in testLines) {
@@ -53,8 +50,9 @@ pipeline {
                         def arg2 = vars[1]
                         def expectedSum = vars[2].toFloat()
 
+                        // ✅ Correction ici : chemin entre quotes simples
                         def output = sh(
-                            script: "docker exec ${containerId} python /app/sum.py ${arg1} ${arg2}",
+                            script: "docker exec ${containerId} python '${env.SUM_PY_PATH}' ${arg1} ${arg2}",
                             returnStdout: true
                         )
 
@@ -86,5 +84,3 @@ pipeline {
         }
     }
 }
-
-
