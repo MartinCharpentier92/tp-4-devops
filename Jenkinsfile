@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SUM_PY_PATH = 'C:/Users/charp/desktop/tp-4-devops/sum.py'
-        DIR_PATH = 'C:/Users/teo/desktop'
+        DIR_PATH = 'C:/Users/charp/desktop'
         TEST_FILE_PATH = 'C:/Users/charp/Desktop/tp-4-devops/test_variables.txt'
     }
 
