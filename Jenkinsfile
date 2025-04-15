@@ -27,7 +27,7 @@ pipeline {
             }
         }
 
-        stage('Run') {
+        stages('Run') {
                 steps {
                     echo "Lancement du conteneur Docker..."
 
